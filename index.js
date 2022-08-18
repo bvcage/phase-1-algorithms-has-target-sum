@@ -1,17 +1,26 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const length = array.length;
+  let found = false;
+  for (let i=0; i<length-1 && !found; ++i) {
+    const val1 = array[i];
+    for (let j=i+1; j<length && !found; ++j) {
+      const val2 = array[j];
+      if (val1 + val2 === target) {found = true};
+    }
+  }
+  return found;
 }
 
 /* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
+  O(n^2)
 */
 
 /*
-  Add written explanation of your solution here
+  Get element at index 0
+    Get element at next index.
+      If sum is equal to target, set found to true & terminate loops.
+      If sum is not equal to target, repeat with next element until end.
+    If no element sums to target with index 0, repeat with next index.
 */
 
 // You can run `node index.js` to view these console logs
